@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 120 1000 840" width="2000" height="1680" class="hero-mascot" role="img" aria-labelledby="chintu-art-title chintu-art-desc">
+<title id="chintu-art-title">chintu, the original little red character</title>
+<desc id="chintu-art-desc">A round red character with a red sprout, yellow exclamation mark, little claw hands and tiny feet. His face follows your pointer.</desc>
+<defs>
+ <filter id="print-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" seed="17" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".2"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+ <clipPath id="left-eye-clip"><circle cx="429" cy="519" r="53"/></clipPath>
+ <clipPath id="right-eye-clip"><circle cx="689" cy="523" r="53"/></clipPath>
+</defs>
+<ellipse cx="558" cy="898" rx="280" ry="19" fill="#4a2924" opacity=".14"/>
+<g class="chintu-body">
+ <g fill="#ff302e" filter="url(#print-grain)">
+  <path d="M544 280C522 245 563 174 630 182C663 182 653 187 638 195C603 218 585 245 577 277Z"/>
+  <path d="M389 839C369 851 346 875 352 890C358 907 477 908 493 895C504 883 482 856 468 848Z"/>
+  <path d="M631 848C616 862 602 883 615 897C629 908 741 907 752 893C763 876 735 849 716 839Z"/>
+  <path d="M273 553C252 551 239 539 233 526C254 491 247 454 222 434C209 424 201 432 199 447C197 464 189 482 174 481C153 480 149 463 154 439C157 425 162 408 147 408C129 408 108 440 100 467C78 539 124 621 200 654C221 663 242 668 268 666Z"/>
+  <path d="M851 581C916 601 978 647 990 703C1001 749 991 792 958 826C941 844 922 846 921 831C920 818 932 788 923 777C911 760 894 769 887 782C882 792 884 817 869 816C843 815 830 771 840 733L852 704L823 657Z"/>
+ </g>
+ <path d="M234 526C249 544 263 552 283 555L269 666C247 627 236 577 234 526Z" fill="#ba171e"/>
+ <path d="M851 583C879 599 878 661 852 704L835 671Z" fill="#ba171e"/>
+ <path d="M476 870L494 889L491 899Z M629 873L614 896L611 886Z" fill="#ba171e"/>
+ <path d="M558 274C727 267 852 391 863 567C874 731 773 873 568 877C391 881 261 765 254 596C245 421 384 285 558 274Z" fill="#ff302e" filter="url(#print-grain)"/>
+ <g class="chintu-face">
+  <g fill="#ffd04b" filter="url(#print-grain)"><path d="M561 341C573 336 580 363 583 397C587 433 578 452 561 452C544 452 539 439 541 414C543 385 552 344 561 341Z"/><circle cx="560" cy="481" r="15.5"/></g>
+  <g class="chintu-eyes" fill="#260807"><circle cx="429" cy="519" r="53"/><circle cx="689" cy="523" r="53"/>
+   <g clip-path="url(#left-eye-clip)"><circle class="chintu-glint" cx="418" cy="503" r="18" fill="#fffdf4"/></g>
+   <g clip-path="url(#right-eye-clip)"><circle class="chintu-glint" cx="677" cy="508" r="18" fill="#fffdf4"/></g>
+  </g>
+  <path d="M512 586Q556 632 603 590" fill="none" stroke="#260807" stroke-width="17" stroke-linecap="round"/>
+ </g>
+</g>
+</svg>
