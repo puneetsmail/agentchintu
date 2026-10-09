@@ -32,7 +32,7 @@ function syncMotion(){document.body.classList.toggle('motion-paused',paused);mot
 syncMotion();
 motion.addEventListener('click',()=>{paused=!paused;syncMotion()});
 reduced.addEventListener('change',event=>{paused=event.matches;syncMotion()});
-const thoughts=["What if we just made it?","That meeting could've been a meme.",'Strong opinion. Weak Wi-Fi.','Plot twist: I checked.','Tiny legs. Long game.','Hear me out.'];
+const thoughts=["What if we just made it?","That meeting could've been a meme.",'Strong opinion. Weak Wi-Fi.','Plot twist: I checked.','The footnote had a plot twist.','Hear me out.'];
 let thought=0,pokeTimeout;
 character.addEventListener('click',()=>{
  document.getElementById('hello').textContent=thoughts[thought++%thoughts.length];
