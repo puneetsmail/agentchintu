@@ -28,6 +28,42 @@
     menu.closest('.masthead').classList.add('menu-ready');
   }
 
+  const slider = document.getElementById('featured-projects');
+  if (slider) {
+    const cards = [...slider.querySelectorAll('.project-feature')];
+    const previous = document.querySelector('.project-prev');
+    const next = document.querySelector('.project-next');
+    const position = document.getElementById('project-position');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0, scrollFrame;
+    function updatePosition() {
+      const left = slider.getBoundingClientRect().left + 2;
+      current = cards.reduce((closest, card, index) =>
+        Math.abs(card.getBoundingClientRect().left - left) < Math.abs(cards[closest].getBoundingClientRect().left - left) ? index : closest, 0);
+      previous.disabled = current === 0;
+      next.disabled = current === cards.length - 1;
+      position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+    }
+    function goTo(index) {
+      const requested = Math.max(0, Math.min(cards.length - 1, index));
+      const left = cards[requested].getBoundingClientRect().left - slider.getBoundingClientRect().left + slider.scrollLeft - 2;
+      slider.scrollTo({left, behavior: reducedMotion.matches || document.body.classList.contains('motion-paused') ? 'auto' : 'smooth'});
+    }
+    previous.addEventListener('click', () => goTo(current - 1));
+    next.addEventListener('click', () => goTo(current + 1));
+    slider.addEventListener('keydown', event => {
+      if (event.target !== slider) return;
+      const targets = {ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: cards.length - 1};
+      if (Object.hasOwn(targets, event.key)) { event.preventDefault(); goTo(targets[event.key]); }
+    });
+    slider.addEventListener('scroll', () => {
+      cancelAnimationFrame(scrollFrame);
+      scrollFrame = requestAnimationFrame(updatePosition);
+    }, {passive: true});
+    new ResizeObserver(updatePosition).observe(slider);
+    updatePosition();
+  }
+
   const log = document.getElementById('quest-log');
   if (log) log.hidden = false;
   const teaser = document.getElementById('now-teaser');
@@ -115,7 +151,6 @@
       const entries = validateFeed(await response.json());
       if (log) renderLog(entries);
       if (entries.length) {
-        document.querySelectorAll('.now-nav').forEach(link => { link.hidden = false; });
         if (teaser) {
           document.getElementById('latest-quest').textContent = `${entries[0].title} — ${entries[0].outcome}`;
           teaser.hidden = false;
