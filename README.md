@@ -24,11 +24,11 @@ Do not add approval records, unpublished entries or private fields to this file.
 
 The log sorts newest dates first and preserves file order within each day. It reads the JSON at runtime; no page layout or application build is needed. GitHub Pages still deploys a content commit, and its CDN may take several minutes to update. After publishing or withdrawing an entry, verify the public JSON and page reflect the change.
 
-The homepage teaser and main-navigation link appear only when the feed has entries. An unobtrusive footer link always leads to the log. Empty and failed feeds have separate messages. No XP, streaks, filters or custom admin are included.
+The homepage teaser appears only when the feed has entries. The animated Now Playing navigation button is always visible. An unobtrusive footer link always leads to the log. Empty and failed feeds have separate messages. No XP, streaks, filters or custom admin are included.
 
 ## Projects
 
-The BACKCHANNEL card is in the `#projects` section of `index.html`. Add future issue cards using the same `project-feature` structure, only when there is a genuine project and public destination. Issue numbers identify projects; the numbered homepage sections are separate.
+The BACKCHANNEL card is in the `#projects` section of `index.html`. Add future `project-feature` cards inside `#featured-projects`, each with a unique heading ID and genuine project destination. The horizontal slider supports touch, trackpad, arrow buttons, and keyboard arrows/Home/End. Its count and controls update automatically; with one project both arrow buttons stay disabled. Keep artwork at its original aspect ratio. The BACKCHANNEL poster is the original event artwork from Partiful, saved locally as `backchannel-event.avif`.
 
 ## Preview
 
